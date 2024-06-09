@@ -8,7 +8,7 @@ def test_search_appium():
         browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type('Appium')
 
-    with allure.step('Првоерка найденного Appium'):
+    with allure.step('Проверка найденного Appium'):
         results = browser.all((AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title'))
         results.should(have.size_greater_than(0))
         results.first.should(have.text('Appium'))
@@ -19,7 +19,7 @@ def test_search_python():
         browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type('Python')
 
-    with allure.step('Првоерка найденного и клик по первой ссылке Python'):
+    with allure.step('Проверка найденного и клик по первой ссылке Python'):
         results = browser.all((AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title'))
         results.should(have.size_greater_than(0))
         results.first.should(have.text('Python'))
